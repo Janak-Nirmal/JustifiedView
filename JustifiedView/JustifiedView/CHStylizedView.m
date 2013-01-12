@@ -89,8 +89,6 @@
 
 - (void)reloadData
 {
-    [cellSizesByIndex removeAllObjects];
-    [infoForCells removeAllObjects];
     [infoForCells removeAllObjects];
     [cellCache removeAllObjects];
     [headerView removeFromSuperview];
@@ -130,10 +128,6 @@
     for (int i = 0; i < numberOfCells; i++) {
         
         CGSize size = [delegate stylizedView:self sizeForCellAtIndex:i];
-        NSValue *sizeObj = [NSValue valueWithCGSize:size];
-
-        [cellSizesByIndex addObject:sizeObj];
-        
         
         float ratio = size.width/size.height;
         
@@ -287,7 +281,6 @@
     delegateObj.stylizedView = self;
     [super setDelegate:delegateObj];
     
-    cellSizesByIndex = [[NSMutableArray alloc] initWithCapacity:100];
     infoForCells = [[NSMutableArray alloc] initWithCapacity:30];
 
     cellCache = [[NSMutableDictionary alloc] initWithCapacity:20];

@@ -87,7 +87,6 @@ typedef enum {
 @interface CHStylizedView : UIScrollView
 {
     NSMutableArray
-    *cellSizesByIndex,    // 1d
     *infoForCells;          // 1d
     
     NSMutableDictionary *cellCache; // reuseIdentifier => NSMutableArray
